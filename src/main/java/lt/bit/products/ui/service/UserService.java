@@ -16,8 +16,7 @@ public class UserService {
 
   private final UserRepository repository;
   private final ModelMapper mapper;
-
-  boolean authenticated;
+  private boolean authenticated;
 
   public UserService(UserRepository repository, ModelMapper mapper) {
     this.repository = repository;
