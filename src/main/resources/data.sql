@@ -66,19 +66,19 @@ INSERT INTO users VALUES (3, 'b2', 'b', 'USER', 'ACTIVE', '2022-06-09', LOCALTIM
 
 CREATE TABLE orders
 (
-    id               VARCHAR(20) PRIMARY KEY,
+    id               VARCHAR(20) PRIMARY KEY NOT NULL,
     customer_name    VARCHAR(50)  NOT NULL,
     customer_address VARCHAR(100) NOT NULL,
     customer_email   VARCHAR(50)  NOT NULL,
     customer_phone   VARCHAR(50)  NOT NULL,
     user_id          INT,
     total_amount     NUMERIC(20, 2),
+    status           VARCHAR(10),
     FOREIGN KEY (user_id) REFERENCES users (id)
 );
 
 CREATE TABLE order_items
 (
-    id         VARCHAR(20) PRIMARY KEY,
     order_id   VARCHAR(20),
     product_id UUID NOT NULL,
     quantity   NUMERIC(5, 2),
